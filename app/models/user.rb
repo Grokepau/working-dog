@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :species, presence: true
   validates :location, presence: true
   validates :username, presence: true
+  has_many: services
+  has_many: bookings
 end
