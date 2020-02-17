@@ -4,3 +4,9 @@
       <div><%= x.description %></div>
     </div>
 <% end %>
+<% @bookings.each do |x| %>
+    <div>
+      <div ><%= x.user %></div>
+      <div><%= x.service %></div>
+    </div>
+<% end %>
