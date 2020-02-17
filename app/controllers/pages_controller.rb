@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def home
   end
 
-  def index
+  def dashboard
     @services = current_user.services
   end
 end
