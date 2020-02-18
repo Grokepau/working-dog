@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.service = Service.find(params[:service_id])
