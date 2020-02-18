@@ -9,6 +9,7 @@ class ServicesController < ApplicationController
 
   def show
     authorize @service
+    @user = current_user
   end
 
   def new
@@ -29,6 +30,8 @@ class ServicesController < ApplicationController
 
   def destroy
     authorize @service
+    @service.destroy!
+    redirect_to dashboard_path
   end
 
   private
