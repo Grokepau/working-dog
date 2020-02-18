@@ -18,6 +18,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
+    @service.user = current_user
     authorize @service
     if @service.save
       redirect_to dashboard_path
