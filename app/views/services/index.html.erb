@@ -27,7 +27,7 @@
           <% @services.each do |service| %>
           <a href="<%= service_path(service) %>">
             <div class="card-product my-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <%= cl_image_tag service.user.photo.key %>
               <div class="card-product-infos">
                 <h2><%= service.title %></h2>
                 <p><%= service.description %></p>
