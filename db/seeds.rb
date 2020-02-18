@@ -44,7 +44,32 @@ User.create!( username: 'eggman',
               admin: 'true')
 puts 'Data for last user (admin) below...'
 p User.last
+puts ''
 puts '*** Note! password is "#{name}_secret ***"'
+puts ''
+puts 'Constructing Services'
+
+sonic_id = User.find_by(username: "sonic").id
+tails_id = User.find_by(username: "tails").id
+big_id = User.find_by(username: "big").id
+charmy_id = User.find_by(username: "charmy").id
+
+new_services = [Service.new(title: "Rescue Animals", description: "Gotta go fast!", user_id:  sonic_id)]
+new_services << Service.new(title: "Collect Rings", description: "Gotta be strong!", user_id:  sonic_id)
+new_services << Service.new(title: "Sidekick for a Day", description: "I'll catch you when you fall down a pit - I promise!", user_id: tails_id)
+new_services << Service.new(title: "Fishing", description: "Meoooooooooooow", user_id: charmy_id)
+new_services << Service.new(title: "Produce Honey", description: "Been doing this for yearzzzz!", user_id: charmy_id)
+
+puts 'Persisting Constructed Services...'
+new_services.each do |service|
+  p service
+  service.save!
+end
+puts 'Done! Data for first and last service below'
+p Service.first
+p Service.last
+puts " ***  Done with seeding! *** "
+
 
 
 
