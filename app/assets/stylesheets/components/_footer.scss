@@ -1,6 +1,9 @@
-.footer {
+#footer {
   position: absolute;
   bottom: 0;
+  height:2.5rem;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.08));
   background: #F4F4F4;
   display: flex;
   align-items: center;
@@ -9,6 +12,7 @@
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 }
+
 .footer-links {
   display: flex;
   align-items: center;

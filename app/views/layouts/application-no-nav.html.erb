@@ -12,9 +12,13 @@
 </head>
 <body>
   <%= render 'shared/flashes' %>
-  <%= yield %>
+    <div id="page-container">
+      <div id="content-wrap">
+      <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+    </div>
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application' %>
-  <%= render 'shared/footer' %>
-</body>
+  </body>
 </html>
