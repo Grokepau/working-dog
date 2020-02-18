@@ -1,5 +1,5 @@
 
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-6 offset-3">
       <div class=""><%= @service.title %>
@@ -9,3 +9,30 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="container mt-3">
+
+  <div class="row">
+    <div class="col-6 offset-3">
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= @service.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= @service.user.username.capitalize %></h6>
+          <p class="card-text"><%= @service.description %></p>
+          <%= link_to services_path do%>
+          <p class="btn btn-danger">Back to Services</p>
+          <% end %>
+
+          <!-- no link for booking new yet so i left a second index path -->
+          <%= link_to services_path do%>
+          <p class="btn btn-primary">Book Service</p>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
