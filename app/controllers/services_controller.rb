@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   layout 'application-no-nav', only: :index
-  before_action :set_service, only: :show
+  before_action :set_service, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: :index
   def index
     # gives everyone access to the index page logeed in or not !!
@@ -25,6 +25,10 @@ class ServicesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    authorize @service
   end
 
   private
