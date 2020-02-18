@@ -1,4 +1,3 @@
-
 <div class="dashboard_container">
 <h2>Dashboard</h2>
 <header>
@@ -16,24 +15,18 @@
 
   <article>
     <h1>Bookings</h1>
-
-    <% @bookings.each do |x| %>
-        <div>
-          <div ><%= x.service.user.username %></div>
-          <div><%= x.service.title %></div>
-        </div>
-
-           <div class="card-product">
+    <% @services.each do |service| %>
+   <!--        <div ><%= service.user.username %></div> -->
+          <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
-            <h2><%= x.date %></h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <div><%= service.title %></div>
+
           </div>
         </div>
+
     <% end %>
 </div>
   </article>
 </section>
 </div>
-
-
