@@ -10,6 +10,8 @@ puts "Cleaning Database"
 
 # should destory all bookings and everything else, via dependent: destroy
 User.destroy_all
+Service.destroy_all
+Booking.destroy_all
 
 puts "Constructing new users..."
 
