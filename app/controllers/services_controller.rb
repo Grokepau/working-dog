@@ -36,3 +36,4 @@ class ServicesController < ApplicationController
     params.require(:service).permit(:title, :description, :user_id)
   end
 end
+# uwegbweo
