@@ -1,0 +1,28 @@
+<div class="d-flex container justify-content-center ">
+  <div class="row">
+    <div class="col" style="margin: 32px;">
+      <h1>New Booking for <%= @service.title %></h1>
+      <%= simple_form_for([@service, @booking]) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-inputs">
+        <%= f.input :date %>
+        <%#= f.input :photo, as: :file %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+
+      <%= link_to service_path(@service) do%>
+        <p class="btn btn-danger">Back to Service</p>
+      <% end %>
+
+      <%= link_to dashboard_path do%>
+        <p class="btn btn-danger">Back to Profile</p>
+      <% end %>
+
+    </div>
+  </div>
+</div>
