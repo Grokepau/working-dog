@@ -2,6 +2,7 @@
 <h2>Dashboard</h2>
 
 <section class="my_section">
+   <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
   <nav class="my_nav">
     <ul>
       <li><a href="#">booking1</a></li>
@@ -11,7 +12,7 @@
   </nav>
 
   <article class="my_article">
-    <h1>Bookings</h1>
+    <h1>Services</h1>
     <% @services.each do |service| %>
    <!--        <div ><%= service.user.username %></div> -->
           <div class="card-product">
