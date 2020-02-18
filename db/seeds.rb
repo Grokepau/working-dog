@@ -65,10 +65,26 @@ new_services.each do |service|
   p service
   service.save!
 end
-puts 'Done! Data for first and last service below'
+puts ' ** Done seeding services! Data for first and last service below...'
 p Service.first
 p Service.last
+
+sidekick_id = Service.find_by(title: "Sidekick for a Day").id
+honey_id = Service.find_by(title: "Produce Honey").id
+fishing_id = Service.find_by(title: "Fishing").id
+
+puts ' * Constructing sample bookings... * '
+
+today = Date.today
+tomorrow = Date.today + 1
+day_after_tomorrow = Date.today + 2
+Booking.create(user_id: sonic_id, service_id: sidekick_id, date: today)
+Booking.create(user_id: sonic_id, service_id: sidekick_id, date: tomorrow)
+Booking.create(user_id: sonic_id, service_id: honey_id, date: day_after_tomorrow)
+Booking.create(user_id: big_id, service_id: sidekick_id, date: day_after_tomorrow)
+
 puts " ***  Done with seeding! *** "
+
 
 
 
