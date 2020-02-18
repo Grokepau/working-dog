@@ -1,3 +1,11 @@
-<h1> You're in "Show" for <%= @service.title %> </h1>
 
-<%= link_to "Back to index?", services_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-3">
+      <div class=""><%= @service.title %>
+
+        <%= link_to "Back to index?", services_path %>
+
+      </div>
+    </div>
+  </div>
