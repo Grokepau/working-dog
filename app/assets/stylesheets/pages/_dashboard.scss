@@ -9,18 +9,9 @@
   margin:0 auto;
   flex-direction:column;
 }
-/* Style the header */
-header {
-  background-color: white;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: white;
-  border: 1px solid black;
-}
 
 /* Create two columns/boxes that floats next to each other */
-nav {
+.my_nav {
   float: left;
   width: 30%;
   height: 300px; /* only for demonstration, should be removed */
@@ -29,12 +20,12 @@ nav {
 }
 
 /* Style the list inside the menu */
-nav ul {
+.my_nav ul {
   list-style-type: none;
   padding: 0;
 }
 
-article {
+.my_article {
   float: left;
   padding: 20px;
   width: 70%;
@@ -43,23 +34,16 @@ article {
 }
 
 /* Clear floats after the columns */
-section:after {
+.my_section:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Style the footer */
-footer {
-  background-color: #777;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
-  nav, article {
+  .my_nav, article {
     width: 100%;
     height: auto;
   }
