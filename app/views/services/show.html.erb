@@ -21,6 +21,8 @@
           <h5 class="card-title"><%= @service.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= @service.user.username.capitalize %></h6>
           <p class="card-text"><%= @service.description %></p>
+          <p class="card-text"><%= @service.price %>€</p>
+
           <%= link_to services_path do%>
           <p class="btn btn-danger">Back to Services</p>
           <% end %>
