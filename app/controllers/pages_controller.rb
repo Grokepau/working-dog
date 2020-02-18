@@ -6,5 +6,9 @@ class PagesController < ApplicationController
   def dashboard
     @services = current_user.services
     @bookings = current_user.bookings
+    @my_jobs=[]
+    @services.each do |service|
+      @my_jobs << Booking.where(service_id: service.id)
+    end
   end
 end

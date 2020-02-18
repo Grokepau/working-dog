@@ -1,12 +1,29 @@
-<% @services.each do |x| %>
-    <div>
-      <div ><%= x.title %></div>
-      <div><%= x.description %></div>
-    </div>
-<% end %>
-<% @bookings.each do |x| %>
-    <div>
-      <div ><%= x.user %></div>
-      <div><%= x.service %></div>
-    </div>
-<% end %>
+<div class="dashboard_container">
+<h2>Dashboard</h2>
+
+<section class="my_section">
+  <nav class="my_nav">
+    <ul>
+      <li><a href="#">booking1</a></li>
+      <li><a href="#">booking2</a></li>
+      <li><a href="#">booking3</a></li>
+    </ul>
+  </nav>
+
+  <article class="my_article">
+    <h1>Bookings</h1>
+    <% @services.each do |service| %>
+   <!--        <div ><%= service.user.username %></div> -->
+          <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <div><%= service.title %></div>
+
+          </div>
+        </div>
+
+    <% end %>
+</div>
+  </article>
+</section>
+</div>
