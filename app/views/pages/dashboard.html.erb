@@ -44,35 +44,37 @@
 <div class="d-flex container justify-content-center ">
   <div class="row">
     <div class="col" style="margin: 32px;">
-      <div class="d-flex justify-content-around align-items-center">
-        <div class="container">
+      <div class="container">
+        <div class="d-flex justify-content-around align-items-center">
 
-        <div class="container-form" style="flex-grow: 1">
 
-          <ul>
-            <li><a href="#">booking1</a></li>
-            <li><a href="#">booking2</a></li>
-            <li><a href="#">booking3</a></li>
-          </ul>
+          <div class="container-form" style="flex-grow: 1">
 
-        </div>
+            <ul>
+              <li><a href="#">booking1</a></li>
+              <li><a href="#">booking2</a></li>
+              <li><a href="#">booking3</a></li>
+            </ul>
 
-        <div class="container-form">
+          </div>
 
-          <% @services.each do |service| %>
-          <a href="<%= service_path(service) %>">
-            <div class="card-product">
-              <%= cl_image_tag service.user.photo.key %>
-              <div class="card-product-infos">
-                <h2><%= service.title %></h2>
-                <p><%= service.description %></p>
-                <p><%= service.price %>€</p>
+          <div class="container-form">
+
+            <% @services.each do |service| %>
+            <a href="<%= service_path(service) %>">
+              <div class="card-product">
+                <%= cl_image_tag service.user.photo.key %>
+                <div class="card-product-infos">
+                  <h2><%= service.title %></h2>
+                  <p><%= service.description %></p>
+                  <p><%= service.price %>€</p>
+                </div>
               </div>
-            </div>
-          </a>
-          <% end %>
+            </a>
+            <% end %>
 
-        </div>
+
+          </div>
         </div>
 
       </div>
