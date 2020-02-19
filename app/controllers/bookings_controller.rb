@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :set_booking, only: :destroy
 
   def new
     @booking = Booking.new
@@ -17,6 +18,12 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    authorize @booking
+    @booking.destroy!
+    redirect_to dashboard_path
   end
 
   private
