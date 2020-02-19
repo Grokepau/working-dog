@@ -3,12 +3,12 @@
     <div class="col" style="margin: 32px;">
       <div class="container-form d-inline-flex">
 
-        <div class="card" style="width: 100%;">
+        <div class="card" style="width: 150%;">
           <div class="card-body">
             <%= cl_image_tag @service.user.photo.key , class: 'avatar-show card-show-pic'%>
-            <h5 class="card-title"><%= @service.title %></h5>
+            <h5 class="card-title" style="width: 200px;"><%= @service.title %></h5>
             <h6 class="card-subtitle mb-2 text-muted">by: <%= @service.user.username.capitalize %></h6>
-            <p class="card-text"><%= @service.description %></p>
+            <p class="card-text" style="width: 200px;"><%= @service.description %></p>
             <p class="card-text card-service-pic"><strong> <%= @service.price %>€</strong></p>
 
 
