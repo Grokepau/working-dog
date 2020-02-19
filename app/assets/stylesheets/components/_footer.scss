@@ -3,7 +3,8 @@
   bottom: 0;
   height: 2.5rem;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+  background-color: $nav-foot;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.08));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,7 +19,7 @@
 }
 .footer-links a {
   color: black;
-  opacity: 0.15;
+  opacity: 0.3;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
