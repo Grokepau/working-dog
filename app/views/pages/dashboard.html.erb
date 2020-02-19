@@ -45,8 +45,7 @@
                 <li class="dashboard_booking_details"><%= job.date %><p class=""><%= job.user.username %></p></li>
               </a>
               <%= link_to booking_path(job), method: :delete do %>
-                <div class="font-awesome-trash"><i class="fas fa-trash-o" aria-hidden="true"></i>
-                </div>
+                <div class="font-awesome-trash"><i class="fas fa-trash" aria-hidden="true"></i></div>
               <% end %>
              <% end %>
              </ul>
