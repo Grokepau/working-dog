@@ -11,10 +11,14 @@
     </ul>
   </nav>
 
+   <!-- @services is no longer an array after I pulled from main branch. cannot be itterated over -->
+
   <article class="my_article">
     <h1>Services</h1>
+   <div>   <%= @services %> </div>
     <% @services.each do |service| %>
    <!--        <div ><%= service.user.username %></div> -->
+    <div>   <%= service %> </div>
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
@@ -23,7 +27,8 @@
              <% service.bookings.each do |job| %>
 
               <a class="dashboard_link" href="#">
-                <li class="dashboard_booking_details"><%= job.date %><p class=""><%= job.user.username %></p></li>
+                <li class="dashboard_booking_details"><%= job.date %><p class="">
+                  <%= job.user.username %></p></li>
               </a>
 
              <% end %>
