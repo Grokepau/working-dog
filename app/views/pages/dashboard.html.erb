@@ -4,17 +4,19 @@
 <section class="my_section">
    <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
   <nav class="my_nav">
-
+    <h1>Bookings</h1>
     <% @bookings.each do |booking| %>
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
-          <div><%= booking.service %></div>
+          <div><%=  %></div>
              <ul>
              <%  if  booking.user == current_user %>
 
               <a class="dashboard_link" href="#">
-                <li class="dashboard_booking_details"><%= booking.service %><p class=""><%= booking.date %></p></li>
+               <li class="dashboard_booking_details"><h2 class=""><%= booking.service.user.username %></h2></li>
+                <li class="dashboard_booking_details"><p class=""><%= booking.date %></p></li>
+                 <li class="dashboard_booking_details"><p class=""><%= booking.service.title %></p></li>
               </a>
 
              <% end %>
@@ -24,13 +26,6 @@
 
     <% end %>
 
-
-
-    <ul>
-      <li><a href="#">booking1</a></li>
-      <li><a href="#">booking2</a></li>
-      <li><a href="#">booking3</a></li>
-    </ul>
   </nav>
 
   <article class="my_article">
