@@ -13,3 +13,14 @@
   width: 100%;
   height: 2.5rem;            /* Footer height */
 }
+
+body {
+  background-color: $background;
+}
+
+.container-form {
+  width: 600px;
+  padding: 18px;
+  background-color: white;
+  border: 3px solid $nav-foot;
+}
