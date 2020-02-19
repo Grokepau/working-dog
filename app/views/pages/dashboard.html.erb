@@ -4,6 +4,28 @@
 <section class="my_section">
    <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
   <nav class="my_nav">
+
+    <% @bookings.each do |booking| %>
+          <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+          <div><%= booking.service %></div>
+             <ul>
+             <%  if  booking.user == current_user %>
+
+              <a class="dashboard_link" href="#">
+                <li class="dashboard_booking_details"><%= booking.service %><p class=""><%= booking.date %></p></li>
+              </a>
+
+             <% end %>
+             </ul>
+          </div>
+        </div>
+
+    <% end %>
+
+
+
     <ul>
       <li><a href="#">booking1</a></li>
       <li><a href="#">booking2</a></li>
@@ -14,18 +36,23 @@
   <article class="my_article">
     <h1>Services</h1>
     <% @services.each do |service| %>
-   <!--        <div ><%= service.user.username %></div> -->
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
           <div><%= service.title %></div>
+           <%= link_to service_path(service), method: :delete do %>
+             <div class="font-awesome-trash"><i class="fas fa-trash" aria-hidden="true"></i></div>
+           <% end %>
              <ul>
              <% service.bookings.each do |job| %>
 
               <a class="dashboard_link" href="#">
                 <li class="dashboard_booking_details"><%= job.date %><p class=""><%= job.user.username %></p></li>
               </a>
-
+              <%= link_to booking_path(job), method: :delete do %>
+                <div class="font-awesome-trash"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                </div>
+              <% end %>
              <% end %>
              </ul>
           </div>
