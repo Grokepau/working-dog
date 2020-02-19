@@ -33,7 +33,7 @@
           <% end %>
 
           <% if @service.user.id == @user.id %>
-            <%= link_to service_path(@service.id), method: :delete do%>
+            <%= link_to service_path(@service.id), method: :delete, data: { confirm: "Are you sure?" } do%>
             <p class="btn btn-danger">Delete Service?</p>
             <% end %>
           <% end %>
