@@ -1,9 +1,9 @@
 <div class="dashboard_container">
-<h2>Dashboard</h2>
+  <h2>Dashboard</h2>
 
-<section class="my_section">
+  <section class="my_section">
    <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
-  <nav class="my_nav">
+   <nav class="my_nav">
     <ul>
       <li><a href="#">booking1</a></li>
       <li><a href="#">booking2</a></li>
@@ -14,25 +14,68 @@
   <article class="my_article">
     <h1>Services</h1>
     <% @services.each do |service| %>
-   <!--        <div ><%= service.user.username %></div> -->
-          <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-          <div><%= service.title %></div>
-             <ul>
-             <% service.bookings.each do |job| %>
+    <!--        <div ><%= service.user.username %></div> -->
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <div><%= service.title %></div>
+        <ul>
+         <% service.bookings.each do |job| %>
 
-              <a class="dashboard_link" href="#">
-                <li class="dashboard_booking_details"><%= job.date %><p class=""><%= job.user.username %></p></li>
-              </a>
+         <a class="dashboard_link" href="#">
+          <li class="dashboard_booking_details"><%= job.date %><p class=""><%= job.user.username %></p></li>
+        </a>
 
-             <% end %>
-             </ul>
-          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <% end %>
+</div>
+</article>
+</section>
+</div>
+
+
+
+
+<h1>Dashboard</h1>
+<div class="d-flex container justify-content-center ">
+  <div class="row">
+    <div class="col" style="margin: 32px;">
+      <div class="d-flex justify-content-around align-items-center">
+        <div class="container">
+
+        <div class="container-form" style="flex-grow: 1">
+
+          <ul>
+            <li><a href="#">booking1</a></li>
+            <li><a href="#">booking2</a></li>
+            <li><a href="#">booking3</a></li>
+          </ul>
+
         </div>
 
-    <% end %>
-</div>
-  </article>
-</section>
+        <div class="container-form">
+
+          <% @services.each do |service| %>
+          <a href="<%= service_path(service) %>">
+            <div class="card-product">
+              <%= cl_image_tag service.user.photo.key %>
+              <div class="card-product-infos">
+                <h2><%= service.title %></h2>
+                <p><%= service.description %></p>
+                <p><%= service.price %>€</p>
+              </div>
+            </div>
+          </a>
+          <% end %>
+
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
