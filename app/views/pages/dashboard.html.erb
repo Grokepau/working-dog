@@ -19,6 +19,9 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
           <div><%= service.title %></div>
+           <%= link_to service_path(service), method: :delete do %>
+             <div class="destroy"></div>
+           <% end %>
              <ul>
              <% service.bookings.each do |job| %>
 
