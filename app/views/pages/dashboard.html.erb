@@ -2,9 +2,8 @@
 <h2>Dashboard</h2>
 
 <section class="my_section">
-   <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
   <nav class="my_nav">
-    <h1>Bookings</h1>
+    <h1 class="dashboard_subtitles">Bookings</h1>
     <% @bookings.each do |booking| %>
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -29,7 +28,8 @@
   </nav>
 
   <article class="my_article">
-    <h1>Services</h1>
+    <h1 class="dashboard_subtitles">Services</h1>
+    <div class = "my_inner_container ">
     <% @services.each do |service| %>
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -51,9 +51,10 @@
              </ul>
           </div>
         </div>
-
     <% end %>
 </div>
+</div>
   </article>
+   <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
 </section>
 </div>
