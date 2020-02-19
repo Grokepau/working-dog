@@ -1,28 +1,47 @@
 <div class="d-flex container justify-content-center ">
   <div class="row">
-    <div class="col" style="margin: 32px;">
-      <h1>New Booking for <%= @service.title %></h1>
-      <%= simple_form_for([@service, @booking]) do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-      <div class="form-inputs">
-        <%= f.input :date %>
-        <%#= f.input :photo, as: :file %>
+    <div class="container d-flex justify-content-around align-items-center" style="height: 600px;">
+      <div class="col" style="margin: 32px;">
+
+        <div class="card container-form" style="width: 400px;">
+          <div class="card-body">
+            <div class="card-product-infos" style="width: 250px;">
+              <p class="card-service-price"> <strong> <%= @service.price %>€</strong></p>
+              <h2><%= @service.title %></h2>
+              <br>
+              <h6 class="card-subtitle text-muted bottom-left">by: <%= @service.user.username.capitalize %></h6>
+            </div>
+            <br>
+            <%= cl_image_tag @service.user.photo.key, class: 'avatar-card mb-3 card-service-pic mr-3'  %>
+          </div>
+        </div>
+
       </div>
 
-      <div class="form-actions">
-        <%= f.submit class: 'btn btn-primary' %>
+      <div class="col" style="margin: 32px;">
+
+        <div class="container-form ">
+          <h1>Add Booking</h1>
+          <%= simple_form_for([@service, @booking]) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="form-inputs">
+            <%= f.input :date %>
+            <%#= f.input :photo, as: :file %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.submit class: 'btn btn-outline-button mb-3' %>
+          </div>
+          <% end %>
+
+          <%= link_to "Back to Service", service_path(@service), class: 'btn btn-outline-button mr-3' %>
+          <%= link_to "Back to my Dashboard", dashboard_path, class: 'btn btn-outline-button ' %>
+        </div>
+
       </div>
-      <% end %>
-
-      <%= link_to service_path(@service) do%>
-        <p class="btn btn-danger">Back to Service</p>
-      <% end %>
-
-      <%= link_to dashboard_path do%>
-        <p class="btn btn-danger">Back to Profile</p>
-      <% end %>
-
     </div>
   </div>
 </div>
+
+

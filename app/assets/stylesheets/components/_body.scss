@@ -16,5 +16,12 @@ body {
   padding: 18px;
   background-color: white;
   border: 3px solid $nav-foot;
+  min-height: 200px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 32px;
+  left: 40px;
 }
 
