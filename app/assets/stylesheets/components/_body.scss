@@ -19,6 +19,15 @@ body {
   min-height: 200px;
 }
 
+.container-dash {
+  width: 600px;
+  padding: 18px;
+  background-color: white;
+  border: 1px solid $nav-foot;
+  height: 35rem;
+  border-radius: 3px;
+}
+
 .bottom-left {
   position: absolute;
   bottom: 32px;

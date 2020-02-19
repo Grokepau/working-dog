@@ -40,7 +40,7 @@
 
 
 
-<h1>Dashboard</h1>
+<h1 class="d-flex justify-content-center">Dashboard</h1>
 <div class="d-flex container justify-content-center ">
   <div class="row">
     <div class="col" style="margin: 32px;">
@@ -48,33 +48,52 @@
         <div class="d-flex justify-content-around align-items-center">
 
 
-          <div class="container-form" style="flex-grow: 1">
+          <div class="container-dash" style=" overflow-y: scroll; height: 35rem;">
+            <h4>Your Bookings</h4>
+            <ul class="list-group">
+              <li class="list-group-item">
 
-            <ul>
-              <li><a href="#">booking1</a></li>
-              <li><a href="#">booking2</a></li>
-              <li><a href="#">booking3</a></li>
+                <% @bookings.each do |booking| %>
+
+                <div class="card-product">
+                  <%= cl_image_tag booking.service.user.photo.key %>
+                  <div class="card-product-infos">
+                    <h2><%= booking.date %></h2>
+
+                    <p><%= booking.service.title %></p>
+                    <p><%= booking.service.description %></p>
+                    <p><%= booking.service.price %>€</p>
+
+                  </div>
+                </div>
+
+                <% end %>
+
+              </li>
             </ul>
 
           </div>
 
-          <div class="container-form">
-
-            <% @services.each do |service| %>
-            <a href="<%= service_path(service) %>">
-              <div class="card-product">
-                <%= cl_image_tag service.user.photo.key %>
-                <div class="card-product-infos">
-                  <h2><%= service.title %></h2>
-                  <p><%= service.description %></p>
-                  <p><%= service.price %>€</p>
+          <ul class="container-dash list-group" style=" overflow-y: scroll; height: 35rem;">
+            <h4>Your Services</h4>
+            <li class="list-group-item">
+              <% @services.each do |service| %>
+              <a href="<%= service_path(service) %>">
+                <div class="card-product">
+                  <%= cl_image_tag service.user.photo.key %>
+                  <div class="card-product-infos">
+                    <h2><%= service.title %></h2>
+                    <p><%= service.description %></p>
+                    <p><%= service.price %>€</p>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <% end %>
+              </a>
+              <% end %>
+            </li>
+          </ul>
 
 
-          </div>
+
         </div>
 
       </div>
