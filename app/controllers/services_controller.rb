@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   layout 'application-no-nav', only: :index
-  before_action :set_service, only: :show
+  before_action :set_service, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: :index
   def index
     # gives everyone access to the index page logeed in or not !!
@@ -9,6 +9,7 @@ class ServicesController < ApplicationController
 
   def show
     authorize @service
+    @user = current_user
   end
 
   def new
@@ -25,6 +26,12 @@ class ServicesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    authorize @service
+    @service.destroy!
+    redirect_to dashboard_path
   end
 
   private
