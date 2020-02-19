@@ -24,17 +24,17 @@
           <p class="card-text"><%= @service.price %>€</p>
 
           <%= link_to services_path do%>
-          <p class="btn btn-primary">Back to Services</p>
+          <p class="btn btn-outline-button">Back to Services</p>
           <% end %>
 
           <!-- no link for booking new yet so i left a second index path -->
           <%= link_to new_service_booking_path(@service) do%>
-          <p class="btn btn-success">Book Service</p>
+          <p class="btn btn-outline-button">Book Service</p>
           <% end %>
 
           <% if @service.user.id == @user.id %>
             <%= link_to service_path(@service.id), method: :delete, data: { confirm: "Are you sure?" } do%>
-            <p class="btn btn-danger">Delete Service?</p>
+            <p class="btn btn-outline-button">Delete Service?</p>
             <% end %>
           <% end %>
         </div>
