@@ -33,3 +33,24 @@
   padding: 16px;
 }
 
+.card-service-pic {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+
+.card-service-price {
+  position: absolute;
+  right: 32px;
+  top: 48px;
+}
+.card-service-head {
+  position: absolute;
+  left: 16px;
+  top: 32px;
+}
+.card-service-by {
+  position: absolute;
+  left: 16px;
+  bottom: 32px;
+}
