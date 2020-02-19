@@ -20,7 +20,7 @@
           <div class="card-product-infos">
           <div><%= service.title %></div>
            <%= link_to service_path(service), method: :delete do %>
-             <div class="destroy"></div>
+             <div class="destroy"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
            <% end %>
              <ul>
              <% service.bookings.each do |job| %>
