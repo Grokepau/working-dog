@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     # @bookings = policy_scope(Booking)
     @my_jobs=[]
     @services.each do |service|
-      @my_jobs << Booking.where(service_id: service.id)
+    @my_jobs << Booking.where(service_id: service.id)
     end
   end
 end
