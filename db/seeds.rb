@@ -47,8 +47,8 @@ locations = ["Ramat Gan",
              "Herzilya"]
 
 names_species.each do |name, species|
-  puts "name = #{name}"
-  puts "species = #{species}"
+  # puts "name = #{name}"
+  # puts "species = #{species}"
   new_user_details = {}
   new_user_details[:username] = name
   new_user_details[:species] = species
@@ -57,12 +57,14 @@ names_species.each do |name, species|
   new_user_details[:email] = "#{name}@#{name}.com"
   new_user_details[:admin] = false
   new_user = User.new(new_user_details)
-  puts "new_user = #{new_user}"
-  puts "photo_urls[name] =  #{photo_urls[name]}"
+  # puts "new_user = #{new_user}"
+  # puts "photo_urls[name] =  #{photo_urls[name]}"
 
   file = URI.open(photo_urls[name])
   new_user.photo.attach(io: file, filename: "#{new_user[:username]}_avatar", content_type: 'image/png')
   new_user.save!
+  puts "Done user #{User.count} / #{names_species.length}..."
+
 end
 
 puts 'Done with normal users! Making an admin user -- data below...'
