@@ -143,8 +143,27 @@ $bookingsColor: #4F509B;
   opacity:1;
 }
 
+.delete3:hover{
+  opacity:1;
+}
+
 .delete, .delete2{position: absolute;
     transform: translate(-37px, -4px);
+    background-color: $servicesColor;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 1px rgba(0,0,0,.3);
+opacity:0;
+transition: opacity ease-in-out 250ms;
+*{color: #fff;}
+  }
+
+   .delete3{position: absolute;
+    transform: translate(38px, -104px);
     background-color: $servicesColor;
     color: #fff;
     text-align: center;

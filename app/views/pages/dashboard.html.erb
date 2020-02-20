@@ -15,7 +15,7 @@
                 <li class="dashboard_booking_details my_bookings"><p class=""><%= booking.date %></p></li>
                  <li class="dashboard_booking_details my_bookings"><p class=""><%= booking.service.title %></p></li>
               </div>
-               <div class="delete2">
+               <div class=" delete delete3">
               <%= link_to booking_path(booking), method: :delete do %>
                 <div class="font-awesome-trash"><i class="fas fa-trash" aria-hidden="true"></i></div>
               <% end %>
