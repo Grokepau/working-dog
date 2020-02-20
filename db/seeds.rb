@@ -23,7 +23,7 @@ sonic_team = {'Lassie' => 'Dog',
               'Big Bird' => 'Bird',
               'Willy' => 'Killer Whale'}
 
-photo_urls = 'Lassie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582054739/mAetHQaMfgCEXfLbRNGBqN6p.png',
+photo_urls = {'Lassie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582054739/mAetHQaMfgCEXfLbRNGBqN6p.png',
              'Flipper' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582055384/kAgd2Ew9SscPhYeFAgeTy62W.png',
              'Secretariat' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109474/secretariat_zztoiv.png',
              'Billy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109870/6-66555_transparent-goat-silhouette-png-goat-simulator-goat-png_pmko2a.png',
