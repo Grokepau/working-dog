@@ -4,6 +4,7 @@
 
   <article class="my_article bookings">
     <h1 class="dashboard_subtitles bookings">Bookings</h1>
+    <div class="dashboard-scrollable-inner-container">
     <% @bookings.each do |booking| %>
           <div class="card-product">
           <%= cl_image_tag booking.service.user.photo.key, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -24,9 +25,11 @@
           </div>
         </div>
     <% end %>
+    </div>
   </article>
   <article class="my_article services">
     <h1 class="dashboard_subtitles services">Services</h1>
+    <div class="dashboard-scrollable-inner-container">
     <div class = "my_inner_container ">
     <% @services.each do |service| %>
           <div class="service_heading">
@@ -68,6 +71,7 @@
         </div>
       </div>
     <% end %>
+    </div>
   </article>
   </section>
 </div>

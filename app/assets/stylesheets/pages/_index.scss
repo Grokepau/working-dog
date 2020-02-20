@@ -40,3 +40,8 @@
 
     background-color: $card-service;
 }
+
+.services-inner-container {
+  overflow-y: scroll;
+  height: 90vh;
+}

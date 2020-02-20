@@ -51,6 +51,11 @@ $bookingsColor: #4F509B;
   }
 }
 
+.dashboard-scrollable-inner-container {
+  overflow-y: scroll;
+  height: 90vh;
+}
+
 .card-product {
   // overflow: hidden;
   // height: 120px;
