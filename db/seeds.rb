@@ -6,31 +6,38 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Cleaning Database"
+puts "Getting required helper libraries..."
+require 'open-uri'
+
+# puts 'Getting helper debug libraries'
+# require 'pry'
+# require 'pry-byebug'
+
+
+puts "Cleaning Database..."
 
 # should destory all bookings and everything else, via dependent: destroy
 User.destroy_all
-Service.destroy_all
-Booking.destroy_all
+# Service.destroy_all
+# Booking.destroy_all
 
 puts 'Constructing new users...'
 
+names_species = {'Lassie' => 'Dog',
+                 'Flipper' => 'Dolphin',
+                 'Secretariat' => 'Horse',
+                 'Billy' => 'Goat',
+                 'Brownie' => 'Dog',
+                 'Big_Bird' => 'Bird',
+                 'Willy' => 'Killer Whale'}
 
-user_basics = {'Lassie' => 'Dog',
-              'Flipper' => 'Dolphin',
-              'Secretariat' => 'Horse',
-              'Billy' => 'Goat',
-              'Brownie' => 'Dog',
-              'Big Bird' => 'Bird',
-              'Willy' => 'Killer Whale'}
-
-photo_urls ={ 'Lassie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582054739/mAetHQaMfgCEXfLbRNGBqN6p.png',
-              'Flipper' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582055384/kAgd2Ew9SscPhYeFAgeTy62W.png',
-              'Secretariat' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109474/secretariat_zztoiv.png',
-              'Billy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109870/6-66555_transparent-goat-silhouette-png-goat-simulator-goat-png_pmko2a.png',
-              'Brownie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109293/LeWagon_portraits_2020.02.06.-53_1_kljass.png',
-              'Big Bird' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582110224/111-1110639_big-bird-face-png-sesame-street-big-bird_iyellv.png',
-              'Willy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582111168/killer_whale_PNG14_obabd7.png'}
+photo_urls = {'Lassie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582138389/cartoon-border-rough-collie-sheltie-dog-breed-border-collie-icelandic-sheepdog-beauceron-scottish-terrier-png-clip-art_jlgdsr.png',
+             'Flipper' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582178447/dolphin_PNG9132_pzimmn.png',
+             'Secretariat' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109474/secretariat_zztoiv.png',
+             'Billy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109870/6-66555_transparent-goat-silhouette-png-goat-simulator-goat-png_pmko2a.png',
+             'Brownie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109293/LeWagon_portraits_2020.02.06.-53_1_kljass.png',
+             'Big_Bird' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582110224/111-1110639_big-bird-face-png-sesame-street-big-bird_iyellv.png',
+             'Willy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582111168/killer_whale_PNG14_obabd7.png'}
 
 
 locations = ["Ramat Gan",
@@ -39,46 +46,33 @@ locations = ["Ramat Gan",
              "Jersulem",
              "Herzilya"]
 
+names_species.each do |name, species|
+  puts "name = #{name}"
+  puts "species = #{species}"
+  new_user_details = {}
+  new_user_details[:username] = name
+  new_user_details[:species] = species
+  new_user_details[:password] = "#{name}_secret"
+  new_user_details[:location] = locations.sample
+  new_user_details[:email] = "#{name}@#{name}.com"
+  new_user_details[:admin] = false
+  new_user = User.new(new_user_details)
+  puts "new_user = #{new_user}"
+  puts "photo_urls[name] =  #{photo_urls[name]}"
 
-
-user_basics.each do |name, species|
-
-  # Construct new user, except for photo
-  details = {}
-  details[:username] = name
-  details[:species] = species
-  details[:password] = "#{name}_secret"
-  details[:location] = locations.sample
-  details[:email] = "#{name}@#{name}.com"
-  details[:admin] = false
-  new_user = User.new(details)
-
-  # Prepare photo from URL, attach to user
-  p "#{photo_urls[name]}"
-  p name
-
-
-  file = URI.open("#{photo_urls[name]}")
-  new_user.photo.attach(io: file, filename: "#{name}_avatar.png", content_type: 'image/png')
+  file = URI.open(photo_urls[name])
+  new_user.photo.attach(io: file, filename: "#{new_user[:username]}_avatar", content_type: 'image/png')
+  new_user.save!
 end
 
+puts 'Done with normal users! Making an admin user -- data below...'
 puts 'Data for first user below...'
 p User.first
 
-puts 'Done with normal users! Making an admin user -- data below...'
-User.create!( username: 'admin',
-              species: 'human',
-              password: 'admin_secret',
-              location: 'Israel',
-              email: 'admin@admin.com',
-              admin: 'true')
-puts 'Data for last user (admin) below...'
-p User.last
-puts ''
-puts '*** Note! password is "#{name}_secret ***"'
-puts ''
-
-
+# p User.last
+# puts ''
+# puts '*** Note! password is "#{name}_secret ***"'
+# puts ''
 # puts 'Constructing Services'
 
 # sonic_id = User.find_by(username: "sonic").id
