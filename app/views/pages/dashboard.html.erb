@@ -1,6 +1,8 @@
 <div class="dashboard_container">
 <h2>Dashboard</h2>
 <section class="articles">
+  <div class='button -regular center'> <%= link_to 'new service', new_service_path(current_user.id)%></div>
+
   <article class="my_article bookings">
     <h1 class="dashboard_subtitles bookings">Bookings</h1>
     <% @bookings.each do |booking| %>
@@ -65,5 +67,4 @@
     <% end %>
   </article>
   </section>
-   <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
 </div>
