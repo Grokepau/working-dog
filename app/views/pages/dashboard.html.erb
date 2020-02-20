@@ -1,9 +1,10 @@
+
 <div class="dashboard_container">
 <h2>Dashboard</h2>
 
-<section class="my_section">
-  <nav class="my_nav">
-    <h1 class="dashboard_subtitles">Bookings</h1>
+<section class="articles">
+  <article class="my_article bookings">
+    <h1 class="dashboard_subtitles bookings">Bookings</h1>
     <% @bookings.each do |booking| %>
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -25,36 +26,59 @@
 
     <% end %>
 
-  </nav>
+  </article>
 
-  <article class="my_article">
-    <h1 class="dashboard_subtitles">Services</h1>
+  <article class="my_article services">
+    <h1 class="dashboard_subtitles services">Services</h1>
     <div class = "my_inner_container ">
+
     <% @services.each do |service| %>
-          <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
+          <div class="service_heading">
           <div><%= service.title %></div>
-           <%= link_to service_path(service), method: :delete do %>
-             <div class="font-awesome-trash"><i class="fas fa-trash" aria-hidden="true"></i></div>
-           <% end %>
+          <div><%= service.price %>$</div>
+          <div class="delete">
+          <%= link_to service_path(service), method: :delete do %>
+            <div class="font-awesome-trash"><i class="fas fa-trash" aria-hidden="true"></i></div>
+          <% end %>
+        </div>
+          </div>
+
+          <div class="card-product">
+          <div class="card-product-infos">
+
              <ul>
              <% service.bookings.each do |job| %>
-
               <a class="dashboard_link" href="#">
-                <li class="dashboard_booking_details"><%= job.date %><p class=""><%= job.user.username %></p></li>
+               <div class="product-info">
+                <li class="dashboard_booking_details">
+                  <div class="all_details">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <div class="detail_text">
+                  <%= job.date %>
+                   <p class="">
+                 <div class="dashboard_date">  <%= job.user.username %>
+                 </div>
+                 </p>
+               </div>
+              </div>
+              </li>
               </a>
+              <div class="delete2">
               <%= link_to booking_path(job), method: :delete do %>
                 <div class="font-awesome-trash"><i class="fas fa-trash" aria-hidden="true"></i></div>
               <% end %>
+               </div>
+             </div>
              <% end %>
              </ul>
-          </div>
+
+
         </div>
+      </div>
     <% end %>
-</div>
-</div>
+
   </article>
+  </section>
    <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
-</section>
+
 </div>
