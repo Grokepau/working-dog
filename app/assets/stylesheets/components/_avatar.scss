@@ -4,6 +4,22 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.avatar-card {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: $nav-foot 3px solid;
+}
+
+.avatar-show {
+  width: 80px;
+  height: 80px;
+  border-radius: 10%;
+  object-fit: cover;
+
+}
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;

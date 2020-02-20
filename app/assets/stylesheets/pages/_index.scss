@@ -1,2 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
+
+#services-index-main-container {
+  display: flex;
+}
+
+#services-index-cards-container {
+  flex-grow: 1;
+}

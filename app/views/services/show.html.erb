@@ -1,45 +1,48 @@
-
-<!-- <div class="container">
+<div class="d-flex container justify-content-center ">
   <div class="row">
-    <div class="col-sm-6 offset-3">
-      <div class=""><%= @service.title %>
+    <div class="col" style="margin: 32px;">
+      <div class="container-form d-inline-flex">
 
-        <%= link_to "Back to index?", services_path %>
+        <div class="card" style="width: 150%;">
+          <div class="card-body">
+            <%= cl_image_tag @service.user.photo.key , class: 'avatar-show card-show-pic'%>
+            <h5 class="card-title" style="width: 200px;"><%= @service.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">by: <%= @service.user.username.capitalize %></h6>
+            <p class="card-text" style="width: 200px;"><%= @service.description %></p>
+            <p class="card-text card-service-pic"><strong> <%= @service.price %>€</strong></p>
 
-      </div>
-    </div>
-  </div>
-</div> -->
 
-<div class="container mt-3">
-
-  <div class="row">
-    <div class="col-6 offset-3">
-
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= @service.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= @service.user.username.capitalize %></h6>
-          <p class="card-text"><%= @service.description %></p>
-          <p class="card-text"><%= @service.price %>€</p>
-
-          <%= link_to services_path do%>
-          <p class="btn btn-primary">Back to Services</p>
-          <% end %>
-
-          <!-- no link for booking new yet so i left a second index path -->
-          <%= link_to new_service_booking_path(@service) do%>
-          <p class="btn btn-success">Book Service</p>
-          <% end %>
-
-          <% if @service.user.id == @user.id %>
-            <%= link_to service_path(@service.id), method: :delete, data: { confirm: "Are you sure?" } do%>
-            <p class="btn btn-danger">Delete Service?</p>
+            <!-- no link for booking new yet so i left a second index path -->
+            <%= link_to new_service_booking_path(@service) do%>
+            <p class="btn btn-outline-button mt-3">Book Service</p>
             <% end %>
-          <% end %>
-        </div>
-      </div>
 
+
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+            <% if @service.user.id == @user.id %>
+            <%= link_to service_path(@service.id), method: :delete, data: { confirm: "Are you sure?" } do%>
+            <p class="btn btn-outline-button">Delete Service?</p>
+            <% end %>
+            <% end %>
+          </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+            <%= link_to services_path do%>
+            <p class="btn btn-outline-button">Back to Services</p>
+            <% end %>
+          </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
   </div>
 </div>

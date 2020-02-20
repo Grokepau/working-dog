@@ -39,3 +39,15 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-outline-button {
+    color: $buttons;
+    background-color: transparent;
+    background-image: none;
+    border-color: $buttons;
+}
+
+.btn-outline-button:hover {
+  background-color: $buttons;
+  color: white;
+}
