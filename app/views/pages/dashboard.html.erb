@@ -5,14 +5,14 @@
     <h1 class="dashboard_subtitles bookings">Bookings</h1>
     <% @bookings.each do |booking| %>
           <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= cl_image_tag booking.service.user.photo.key, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="card-product-infos">
              <ul>
              <%  if  booking.user == current_user %>
               <a class="dashboard_link" href="#">
-               <li class="dashboard_booking_details"><h2 class=""><%= booking.service.user.username %></h2></li>
-                <li class="dashboard_booking_details"><p class=""><%= booking.date %></p></li>
-                 <li class="dashboard_booking_details"><p class=""><%= booking.service.title %></p></li>
+               <li class="dashboard_booking_details my_bookings"><h2 class=""><%= booking.service.user.username %></h2></li>
+                <li class="dashboard_booking_details my_bookings"><p class=""><%= booking.date %></p></li>
+                 <li class="dashboard_booking_details my_bookings"><p class=""><%= booking.service.title %></p></li>
               </a>
              <% end %>
              </ul>
@@ -33,7 +33,7 @@
           <% end %>
         </div>
           </div>
-          <div class="card-product">
+          <div class="card-product my_bookings_card">
           <div class="card-product-infos">
              <ul>
              <% service.bookings.each do |job| %>
@@ -41,7 +41,7 @@
                <div class="product-info">
                 <li class="dashboard_booking_details">
                   <div class="all_details">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <%= cl_image_tag job.user.photo.key, 'aria-haspopup': true, 'aria-expanded': false %>
                   <div class="detail_text">
                   <%= job.date %>
                    <p class="">
