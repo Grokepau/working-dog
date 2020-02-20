@@ -29,7 +29,9 @@ names_species = {'Lassie' => 'Dog',
                  'Billy' => 'Goat',
                  'Brownie' => 'Dog',
                  'Big_Bird' => 'Bird',
-                 'Willy' => 'Killer Whale'}
+                 'Willy' => 'Killer Whale',
+                 'KingKong' => 'Ape',
+                  }
 
 photo_urls = {'Lassie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582138389/cartoon-border-rough-collie-sheltie-dog-breed-border-collie-icelandic-sheepdog-beauceron-scottish-terrier-png-clip-art_jlgdsr.png',
              'Flipper' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582178447/dolphin_PNG9132_pzimmn.png',
@@ -37,7 +39,9 @@ photo_urls = {'Lassie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v15
              'Billy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109870/6-66555_transparent-goat-silhouette-png-goat-simulator-goat-png_pmko2a.png',
              'Brownie' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582109293/LeWagon_portraits_2020.02.06.-53_1_kljass.png',
              'Big_Bird' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582110224/111-1110639_big-bird-face-png-sesame-street-big-bird_iyellv.png',
-             'Willy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582111168/killer_whale_PNG14_obabd7.png'}
+             'Willy' => 'https://res.cloudinary.com/djutcyvwz/image/upload/v1582111168/killer_whale_PNG14_obabd7.png',
+             'KingKong' => 'https://res.cloudinary.com/dteptyvza/image/upload/v1582203566/kingkong_lzhviy.jpg'
+           }
 
 
 locations = ["Ramat Gan",

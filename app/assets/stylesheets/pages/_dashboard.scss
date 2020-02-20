@@ -11,6 +11,7 @@ $bookingsColor: #4F509B;
   display: flex;
   margin:0 auto;
   flex-direction:column;
+  margin-top: 40px;
 }
 
 /* Create two columns/boxes that floats next to each other */
@@ -48,6 +49,11 @@ $bookingsColor: #4F509B;
     width: 100%;
     height: auto;
   }
+}
+
+.dashboard-scrollable-inner-container {
+  overflow-y: scroll;
+  height: 90vh;
 }
 
 .card-product {
@@ -143,8 +149,27 @@ $bookingsColor: #4F509B;
   opacity:1;
 }
 
+.delete3:hover{
+  opacity:1;
+}
+
 .delete, .delete2{position: absolute;
     transform: translate(-37px, -4px);
+    background-color: $servicesColor;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 1px rgba(0,0,0,.3);
+opacity:0;
+transition: opacity ease-in-out 250ms;
+*{color: #fff;}
+  }
+
+   .delete3{position: absolute;
+    transform: translate(38px, -104px);
     background-color: $servicesColor;
     color: #fff;
     text-align: center;
@@ -229,5 +254,82 @@ ul{
 
 .my_bookings_card{
   padding-bottom: 0px;
+}
+
+
+.add_new_btn{
+width:20%;
+}
+.button {
+
+  width: 30px;
+  height: 30px;
+  display: flex;
+  overflow: hidden;
+
+  margin-right: 10px;
+  padding: 12px 12px;
+
+  cursor: pointer;
+  user-select: none;
+  transition: all 150ms linear;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  text-transform: capitalize;
+
+  color: #fff;
+  border: 0 none;
+  border-radius: 4px;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 160px;
+
+  box-shadow: 2px 5px 10px var(--color-smoke);
+
+  &:hover {
+    transition: all 150ms linear;
+
+    opacity: .85;
+  }
+
+  &:active {
+    transition: all 150ms linear;
+    opacity: .75;
+  }
+
+  &:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+  }
+}
+
+.button.-regular {
+  color: #202129;
+  background-color: #f2f2f2;
+
+  &:hover {
+    color: #202129;
+    background-color: #e1e2e2;
+    opacity: 1;
+  }
+
+  &:active {
+    background-color: #d5d6d6;
+    opacity: 1;
+  }
+  a {
+    color:black;
+  }
 }
 

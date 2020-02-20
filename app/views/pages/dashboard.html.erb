@@ -1,27 +1,35 @@
 <div class="dashboard_container">
-<h2>Dashboard</h2>
 <section class="articles">
+  <div class='button -regular center'> <%= link_to 'new service', new_service_path(current_user.id)%></div>
+
   <article class="my_article bookings">
     <h1 class="dashboard_subtitles bookings">Bookings</h1>
+    <div class="dashboard-scrollable-inner-container">
     <% @bookings.each do |booking| %>
           <div class="card-product">
           <%= cl_image_tag booking.service.user.photo.key, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="card-product-infos">
              <ul>
              <%  if  booking.user == current_user %>
-              <a class="dashboard_link" href="#">
+              <div class="dashboard_link">
                <li class="dashboard_booking_details my_bookings"><h2 class=""><%= booking.service.user.username %></h2></li>
                 <li class="dashboard_booking_details my_bookings"><p class=""><%= booking.date %></p></li>
                  <li class="dashboard_booking_details my_bookings"><p class=""><%= booking.service.title %></p></li>
-              </a>
+              </div>
+               <div class=" delete delete3">
+              <%= link_to booking_path(booking), method: :delete do %>
+                <div class="font-awesome-trash"><i class="fas fa-trash" aria-hidden="true"></i></div>
+              <% end %>
              <% end %>
              </ul>
           </div>
         </div>
     <% end %>
+    </div>
   </article>
   <article class="my_article services">
     <h1 class="dashboard_subtitles services">Services</h1>
+    <div class="dashboard-scrollable-inner-container">
     <div class = "my_inner_container ">
     <% @services.each do |service| %>
           <div class="service_heading">
@@ -63,7 +71,7 @@
         </div>
       </div>
     <% end %>
+    </div>
   </article>
   </section>
-   <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
 </div>
