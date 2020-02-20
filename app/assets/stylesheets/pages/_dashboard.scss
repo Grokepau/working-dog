@@ -97,6 +97,7 @@ $bookingsColor: #4F509B;
 
 .my_article {
   background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display:flex;
   flex-direction:column;
   flex-grow:1;
@@ -189,6 +190,7 @@ line-height: 20px;
 display: flex;
 }
 
+
 ul{
   padding: 0;
   margin-block-end:0;
@@ -200,3 +202,24 @@ ul{
     font-weight: bold;
   }
 }
+
+.form-changes {
+  color: $card-service;
+
+}
+
+.form-price {
+  width: 50px;
+}
+
+.form-right {
+  position: absolute;
+  right: 32px;
+
+}
+
+.form-actions {
+  padding: 0;
+}
+
+
