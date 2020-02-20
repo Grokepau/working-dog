@@ -11,6 +11,7 @@ $bookingsColor: #4F509B;
   display: flex;
   margin:0 auto;
   flex-direction:column;
+  margin-top: 40px;
 }
 
 /* Create two columns/boxes that floats next to each other */
@@ -219,7 +220,7 @@ width:20%;
   display: flex;
   overflow: hidden;
 
-  margin: 10px;
+  margin-right: 10px;
   padding: 12px 12px;
 
   cursor: pointer;
@@ -279,5 +280,8 @@ width:20%;
   &:active {
     background-color: #d5d6d6;
     opacity: 1;
+  }
+  a {
+    color:black;
   }
 }
