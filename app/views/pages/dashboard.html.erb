@@ -1,7 +1,5 @@
-
 <div class="dashboard_container">
 <h2>Dashboard</h2>
-
 <section class="articles">
   <article class="my_article bookings">
     <h1 class="dashboard_subtitles bookings">Bookings</h1>
@@ -9,29 +7,22 @@
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
-          <div><%=  %></div>
              <ul>
              <%  if  booking.user == current_user %>
-
               <a class="dashboard_link" href="#">
                <li class="dashboard_booking_details"><h2 class=""><%= booking.service.user.username %></h2></li>
                 <li class="dashboard_booking_details"><p class=""><%= booking.date %></p></li>
                  <li class="dashboard_booking_details"><p class=""><%= booking.service.title %></p></li>
               </a>
-
              <% end %>
              </ul>
           </div>
         </div>
-
     <% end %>
-
   </article>
-
   <article class="my_article services">
     <h1 class="dashboard_subtitles services">Services</h1>
     <div class = "my_inner_container ">
-
     <% @services.each do |service| %>
           <div class="service_heading">
           <div><%= service.title %></div>
@@ -42,10 +33,8 @@
           <% end %>
         </div>
           </div>
-
           <div class="card-product">
           <div class="card-product-infos">
-
              <ul>
              <% service.bookings.each do |job| %>
               <a class="dashboard_link" href="#">
@@ -71,14 +60,10 @@
              </div>
              <% end %>
              </ul>
-
-
         </div>
       </div>
     <% end %>
-
   </article>
   </section>
    <%= link_to 'new service', new_service_path(current_user.id), class: "btn btn-primary" %>
-
 </div>
